@@ -1,8 +1,12 @@
 body {
   --light-red: hsl(0, 100%, 67%);
+  --blurred-light-red: hsla(0, 100%, 67%, 0.1);
   --orangey-yellow: hsl(39, 100%, 56%);
+  --blurred-orangey-yellow: hsla(39, 100%, 56%, 0.1);
   --green-teal: hsl(166, 100%, 37%);
+  --blurred-green-teal: hsla(166, 100%, 37%, 0.1);
   --cobalt-blue: hsl(234, 85%, 45%);
+  --blurred-cobalt-blue: hsl(234, 85%, 45%, 0.1);
   --background-light-slate-blue: hsl(252, 100%, 67%);
   --background-light-royal-blue: hsl(241, 81%, 54%);
   --circle-violet-blue: hsla(256, 72%, 46%, 1);
@@ -12,6 +16,11 @@ body {
   --light-lavender: hsl(241, 100%, 89%);
   --dark-gray-blue: hsl(224, 30%, 27%);
   --link-blue: hsl(228, 45%, 44%);
+  font-family: Hanken Grotesk;
+}
+
+body {
+  align-items: center;
 }
 
 .attribution {
@@ -34,6 +43,7 @@ body {
   flex-wrap: wrap;
   align-content: space-between;
   justify-content: center;
+  border-radius: 10px;
 }
 
 img {
@@ -47,36 +57,58 @@ img {
 .box {
   max-width: 400px;
   margin: 0 auto;
+  margin-top: 30px;
+  margin-left: 26%;
+  align-items: center;
+  border-color: black;
   padding: 20px;
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .results {
-  height: 25rem;
-  width: 15rem;
-  background-color: var(--background-light-slate-blue);
+  height: 23rem;
+  width: 13rem;
+  background: linear-gradient(
+    var(--background-light-slate-blue),
+    var(--background-light-royal-blue)
+  );
   font-size: 18px;
   border-radius: 10%;
+  padding: 20px;
 }
 .your {
   text-align: center;
-  color: var(--dark-gray-blue);
-  opacity: 0.5;
+  color: #ccc;
 }
 .circle {
-  width: 130px;
   height: 190px;
-  background-color: var(--circle-violet-blue);
+  background: linear-gradient(
+    var(--circle-violet-blue),
+    var(--background-light-royal-blue)
+  );
   margin: 0 auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 20px;
-  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 50%;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
-#score {
+.great {
+  color: #ccc;
+}
+#great_word {
   color: var(--white);
   font-size: 30px;
+  font-weight: bold;
+}
+.score {
+  color: var(--white);
+  font-size: 70px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .category-card:nth-child(1) h2 {
@@ -90,4 +122,97 @@ img {
 }
 .category-card:nth-child(4) h2 {
   color: var(--cobalt-blue);
+}
+.category-card:nth-child(1) {
+  background: var(--blurred-light-red);
+}
+.category-card:nth-child(2) {
+  background: var(--blurred-orangey-yellow);
+}
+.category-card:nth-child(3) {
+  background: var(--blurred-green-teal);
+}
+.category-card:nth-child(4) {
+  background: var(--blurred-cobalt-blue);
+}
+.scores {
+  margin: 10px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.out_of {
+  opacity: 0.5;
+}
+.results p {
+  font-size: 17px;
+}
+
+.summary {
+  flex-basis: calc(50% - 10px);
+  align-items: left;
+}
+.summary_word {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: -109px;
+}
+.btn {
+  background: var(--dark-gray-blue);
+  color: var(--white);
+  width: 70%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+  margin-left: 70px;
+  outline: none;
+  border-radius: 30px;
+}
+.btn:hover {
+  background: linear-gradient(
+    var(--background-light-slate-blue),
+    var(--background-light-royal-blue)
+  );
+}
+@media (min-width: 374px) and (max-width: 765px) {
+  .box {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .category-card {
+    width: 100%;
+  }
+
+  .results {
+    flex: 1;
+    background: linear-gradient(
+      var(--background-light-slate-blue),
+      var(--background-light-royal-blue)
+    );
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 20px;
+  }
+
+  .summary {
+    margin-left: 0px;
+  }
+  .btn {
+    width: 90%;
+    margin-left: 60px;
+    height: 50px;
+  }
 }
